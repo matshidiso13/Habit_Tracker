@@ -9,5 +9,20 @@
   },
   "author": "",
   "license": "ISC",
-  "description": ""
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matshidiso13/Habit_Tracker.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/matshidiso13/Habit_Tracker/issues"
+  },
+  "homepage": "https://github.com/matshidiso13/Habit_Tracker#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  }
 }
