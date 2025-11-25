@@ -1,0 +1,1 @@
+app.use("/admin/tasks", require("./routes/admin.tasks"));
