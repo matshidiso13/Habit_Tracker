@@ -21,7 +21,7 @@ async function main() {
  // Regular user
  await prisma.user.create({
    data: {
-     username: 'Thembek',
+     username: 'Thembeka',
      email: 'thembeka@shaper.com',
      password: passwordHash,
      role: 'USER'
