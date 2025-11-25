@@ -6,7 +6,7 @@ async function main() {
  //await prisma.recipe.deleteMany();
  //await prisma.user.deleteMany();
 
- const passwordHash = await bcrypt.hash('password', 10);
+ const passwordHash = await bcrypt.hash('password', 10); 
 
  // Admin
  await prisma.user.create({
