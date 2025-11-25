@@ -17,14 +17,3 @@ router.delete("/:id", auth, adminOnly, async (req, res) => {
   res.status(204).send();
 });
 
-// Admin ban task
-router.patch("/:id/ban", auth, adminOnly, async (req, res) => {
-  res.json(
-    await prisma.task.update({
-      where: { id: Number(req.params.id) },
-      data: { banned: true }
-    })
-  );
-});
-
-module.exports = router;
