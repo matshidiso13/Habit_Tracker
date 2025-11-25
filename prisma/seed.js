@@ -1,18 +1,18 @@
 const bcrypt = require('bcryptjs');
-const { PrismaClient } = require('@prisma/client');
+const { PrismaClient } = require('../generated/prisma');
 const prisma = new PrismaClient();
 
 async function main() {
- await prisma.recipe.deleteMany();
- await prisma.user.deleteMany();
+ //await prisma.recipe.deleteMany();
+ //await prisma.user.deleteMany();
 
  const passwordHash = await bcrypt.hash('password', 10); 
 
  // Admin
  await prisma.user.create({
    data: {
-     name: 'Admin User',
-     email: 'admin@charlotte.com',
+     username: 'Charlotte',
+     email: 'admin@shaper.com',
      password: passwordHash,
      role: 'ADMIN'
    }
@@ -21,13 +21,10 @@ async function main() {
  // Regular user
  await prisma.user.create({
    data: {
-     name: 'Alice',
+     username: 'Thembek',
      email: 'thembeka@shaper.com',
      password: passwordHash,
-     role: 'USER',
-     recipes: {
-       create: [{ title: 'Alice Spaghetti', ingredients: 'spaghetti\ngarlic', steps: '1. Boil\n2. Toss', cookingTime: 20 }]
-     }
+     role: 'USER'
    }
  });
 
