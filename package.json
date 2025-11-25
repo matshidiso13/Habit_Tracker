@@ -9,5 +9,25 @@
   },
   "author": "",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matshidiso13/Habit_Tracker.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/matshidiso13/Habit_Tracker/issues"
+  },
+  "homepage": "https://github.com/matshidiso13/Habit_Tracker#readme",
+  "dependencies": {
+    "@prisma/client": "^7.0.0",
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "prisma": "^7.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  },
   "description": ""
 }
