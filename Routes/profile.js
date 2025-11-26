@@ -2,7 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const prisma = require('../prismaClient');
-const auth = require('../middleware/auth'); // your existing auth.js middleware
+const auth = require('../Middleware/auth'); // your existing auth.js middleware
 
 // ------------------------------
 // VIEW PROFILE
@@ -55,4 +55,3 @@ router.patch('/', auth, async (req, res) => {
 });
 
 module.exports = router;
-
