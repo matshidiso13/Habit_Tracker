@@ -11,3 +11,6 @@ app.get("/",(req, res) =>{
 app.listen(port, ()=>{
     console.log(`server running on http://localhost:${port}`)
 });
+
+const profileRoutes = require('./Routes/profile');
+app.use('/profile', profileRoutes);
