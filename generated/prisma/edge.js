@@ -126,7 +126,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "/Users/dam134/Desktop/Habit_Tracker/generated/prisma",
+      "value": "/Users/dam137/Desktop/Habit_Tracker/generated/prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -140,7 +140,7 @@ const config = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "/Users/dam134/Desktop/Habit_Tracker/prisma/schema.prisma",
+    "sourceFilePath": "/Users/dam137/Desktop/Habit_Tracker/prisma/schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
@@ -154,7 +154,6 @@ const config = {
     "db"
   ],
   "activeProvider": "postgresql",
-  "postinstall": false,
   "inlineDatasources": {
     "db": {
       "url": {
