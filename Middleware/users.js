@@ -51,11 +51,8 @@ router.post('/login', async (req, res) => {
 });
 
 module.exports = router;
-<<<<<<< HEAD
 
 
 router.get('/test', (req, res) => {
   res.send("users router working");
 });
-=======
->>>>>>> c98ba315dc04fd8035059761c6eabba19d79dcab
