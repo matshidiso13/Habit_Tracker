@@ -8,7 +8,7 @@ require('dotenv').config();
 const jwtSecret = process.env.JWT_SECRET || 'please_change_me';
 const jwtExpiry = '7d';
 
-// Register
+// Register 
 router.post('/register', async (req, res) => {
  const { username, email, password } = req.body;
  if (!username || !email || !password) return res.status(400).json({ error: 'name, email and password required' });
