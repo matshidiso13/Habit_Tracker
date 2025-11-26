@@ -1,22 +1,19 @@
-import { PrismaClient } from "@prisma/client";
+const { PrismaClient } = require("@prisma/client");
 
 const prisma = new PrismaClient();
 
-// Create a task list
-export const createTaskList = async (req, res) => {
+// Create a task
+export const createTask = async (req, res) => {
   try {
     const { title, description } = req.body;
 
-    const newTaskList = await prisma.taskList.create({
-      data: {
-        title,
-        description,
-      },
+    const newTask = await prisma.task.create({
+      data: { title, description },
     });
 
     res.status(201).json({
-      message: "Task list created successfully",
-      data: newTaskList,
+      message: "Task created successfully",
+      data: newTask,
     });
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -24,14 +21,14 @@ export const createTaskList = async (req, res) => {
 };
 
 
-// Get all task lists
-export const getAllTaskLists = async (req, res) => {
+// Get all tasks
+export const getAllTasks = async (req, res) => {
   try {
-    const taskLists = await prisma.taskList.findMany();
+    const tasks = await prisma.task.findMany();
 
     res.status(200).json({
-      message: "All task lists retrieved successfully",
-      data: taskLists,
+      message: "All tasks retrieved successfully",
+      data: tasks,
     });
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -39,22 +36,22 @@ export const getAllTaskLists = async (req, res) => {
 };
 
 
-// Get task list by ID
-export const getTaskListById = async (req, res) => {
+// Get task by ID
+export const getTaskById = async (req, res) => {
   try {
     const { id } = req.params;
 
-    const taskList = await prisma.taskList.findUnique({
+    const task = await prisma.task.findUnique({
       where: { id: Number(id) },
     });
 
-    if (!taskList) {
-      return res.status(404).json({ message: "Task list not found" });
+    if (!task) {
+      return res.status(404).json({ message: "Task not found" });
     }
 
     res.status(200).json({
-      message: `Task list with id ${id} retrieved successfully`,
-      data: taskList,
+      message: `Task with id ${id} retrieved successfully`,
+      data: task,
     });
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -62,58 +59,58 @@ export const getTaskListById = async (req, res) => {
 };
 
 
-// Update task list by ID
-export const updateTaskListById = async (req, res) => {
+// Update task by ID
+export const updateTaskById = async (req, res) => {
   try {
     const { id } = req.params;
     const { title, description } = req.body;
 
-    const updatedTaskList = await prisma.taskList.update({
+    const updatedTask = await prisma.task.update({
       where: { id: Number(id) },
       data: { title, description },
     });
 
     res.status(200).json({
-      message: `Task list with id ${id} updated successfully`,
-      data: updatedTaskList,
+      message: `Task with id ${id} updated successfully`,
+      data: updatedTask,
     });
   } catch (error) {
     if (error.code === "P2025") {
-      return res.status(404).json({ message: "Task list not found" });
+      return res.status(404).json({ message: "Task not found" });
     }
     res.status(500).json({ error: error.message });
   }
 };
 
 
-// Delete task list by ID
-export const deleteTaskListById = async (req, res) => {
+// Delete task by ID
+export const deleteTaskById = async (req, res) => {
   try {
     const { id } = req.params;
 
-    await prisma.taskList.delete({
+    await prisma.task.delete({
       where: { id: Number(id) },
     });
 
     res.status(200).json({
-      message: `Task list with id ${id} deleted successfully`,
+      message: `Task with id ${id} deleted successfully`,
     });
   } catch (error) {
     if (error.code === "P2025") {
-      return res.status(404).json({ message: "Task list not found" });
+      return res.status(404).json({ message: "Task not found" });
     }
     res.status(500).json({ error: error.message });
   }
 };
 
 
-// Delete all task lists
-export const deleteAllTaskLists = async (req, res) => {
+// Delete all tasks
+export const deleteAllTasks = async (req, res) => {
   try {
-    await prisma.taskList.deleteMany();
+    await prisma.task.deleteMany();
 
     res.status(200).json({
-      message: "All task lists deleted successfully",
+      message: "All tasks deleted successfully",
     });
   } catch (error) {
     res.status(500).json({ error: error.message });
