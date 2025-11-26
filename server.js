@@ -13,3 +13,8 @@ app.get("/",(req, res) =>{
 app.listen(port, ()=>{
     console.log(`server running on http://localhost:${port}`)
 });
+
+// Load task routes
+const TaskRoutes = require("./Routes/Taskroutes"); 
+app.use("/api/tasks", TaskRoutes);
+
