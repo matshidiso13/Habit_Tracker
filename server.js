@@ -18,3 +18,14 @@ app.listen(port, () => {
     console.log(`server running on http://localhost:${port}`);
 });
 
+
+const usersRoutes = require('./Middleware/users');
+const profileRoutes = require('./Routes/profile');
+
+app.use(express.json());
+
+// user registration & login
+app.use('/users', usersRoutes);
+
+// profile routes (view/update)
+app.use('/profile', profileRoutes);
