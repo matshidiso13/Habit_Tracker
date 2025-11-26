@@ -14,5 +14,8 @@ app.listen(port, ()=>{
     console.log(`server running on http://localhost:${port}`)
 });
 
+<<<<<<< HEAD
 const profileRoutes = require('./Routes/profile');
 app.use('/profile', profileRoutes);
+=======
+>>>>>>> 3dc15e489acd3896b52b6337f1362bb57b69c351
